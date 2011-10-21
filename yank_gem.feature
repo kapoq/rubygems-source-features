@@ -9,7 +9,7 @@ Feature: yank gem
       | terran  |          1.0.0 | ruby          |
       | terran  |          2.0.0 | ruby          |
       | terran  |          2.0.0 | x86-darwin-10 |
-    When I make a DELETE request to "/api/v1/gems/yank" with gem_name "terran", version "2.0.0", and platform "ruby"
+    When I make a DELETE request to "/api/v1/gems" with gem_name "terran", version "2.0.0", and platform "ruby"
     Then the response status is 200
     And the full gem index contains exactly the following gems:
       | name    | version number | platform      |
@@ -22,7 +22,7 @@ Feature: yank gem
       | terran  |          1.0.0 | ruby          |
       | terran  |          2.0.0 | ruby          |
       | terran  |          2.0.0 | x86-darwin-10 |
-    When I make a DELETE request to "/api/v1/gems/yank" with gem_name "terran" and version "2.0.0"
+    When I make a DELETE request to "/api/v1/gems" with gem_name "terran" and version "2.0.0"
     Then the response status is 200
     And the full gem index contains exactly the following gems:
       | name    | version number | platform      |
@@ -33,7 +33,7 @@ Feature: yank gem
       | name    | version number | platform      |
       | terran  |          1.0.0 | ruby          |
       | terran  |          2.0.0 | x86-darwin-10 |
-    When I make a DELETE request to "/api/v1/gems/yank" with gem_name "terran", version "2.0.0", and platform "ruby"
+    When I make a DELETE request to "/api/v1/gems" with gem_name "terran", version "2.0.0", and platform "ruby"
     Then the response status is 404
     And the full gem index contains exactly the following gems:
       | name    | version number | platform      |
