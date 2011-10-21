@@ -62,7 +62,7 @@ module GemHelpers
   def assert_gem_present_in_index(package_name)
     get_full_index
     index = read_compressed_gem_index(last_body)
-    (index.detect { |s| "#{s[0]}-#{s[1].to_s}.gem" == package_name } && true).should be_true
+    (!!index.detect { |s| "#{s[0]}-#{s[1].to_s}.gem" == package_name }).should be_true
   end
   
   def assert_gemspec_present(package_name)

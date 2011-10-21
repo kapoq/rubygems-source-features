@@ -3,13 +3,15 @@ When /^I make a GET request to "([^"]*)"$/ do |path|
 end
 
 When /^I POST the gem package to "([^"]*)"$/ do |path|
-  post path, :file => Rack::Test::UploadedFile.new(File.join(TmpDirHelper.local_dir, @package_name), "application/octet-stream")
+  header "Content-Type", "application/octet-stream"
+  post path, Gem.read_binary(File.join(TmpDirHelper.local_dir, @package_name))
 end
 
 When /^I POST a file that is not a valid gem package to "([^"]*)"$/ do |path|
   invalid_package = File.join(TmpDirHelper.local_dir, "invalid.gem")
   open(invalid_package, "w") { |f| f << "invalid package" }
-  post path, :file => Rack::Test::UploadedFile.new(invalid_package, "application/octet-stream")
+  header "Content-Type", "application/octet-stream"
+  post path, invalid_package
 end
 
 When /^I make a DELETE request to "([^"]*)" with gem_name "([^"]*)" and version "([^"]*)"$/ do |path, name, version|
