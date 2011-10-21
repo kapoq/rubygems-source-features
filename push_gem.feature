@@ -24,7 +24,7 @@ Feature: push gem
     And I have a new gem package for the gem with same version
     When I POST the gem package to "/api/v1/gems"
     Then the response status is 409
-    And the orginal gem is still available to install from the server
+    And the original gem is still available to install from the server
 
   Scenario: push something that is not a valid gem
     When I POST a file that is not a valid gem package to "/api/v1/gems"

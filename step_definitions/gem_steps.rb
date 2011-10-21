@@ -35,7 +35,7 @@ Then /^the gem "([^"]*)" version "([^"]*)" is available to install from the serv
   assert_available_for_install(@package_name)
 end
 
-Then /^the orginal gem is still available to install from the server$/ do
+Then /^the original gem is still available to install from the server$/ do
   get_gemspec(@package_name)
   spec = read_compressed_gemspec(last_body)
   spec.summary.should eq "original version"
