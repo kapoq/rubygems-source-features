@@ -49,5 +49,3 @@ end
 at_exit do
   TmpDirHelper.remove
 end
-
-Rubygems::Source::App.public_folder = TmpDirHelper.root_dir
